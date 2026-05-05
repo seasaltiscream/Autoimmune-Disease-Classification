@@ -25,8 +25,8 @@ set1, set2 = load_systems()
 # =========================
 # TITLE
 # =========================
-st.title("🩺 Autoimmune Disease Predictor")
-st.caption("Academic Machine Learning Prototype")
+st.title("Autoimmune Disease Predictor")
+# st.caption("Academic Machine Learning Prototype")
 
 st.markdown("---")
 
@@ -87,7 +87,7 @@ else:
 
     st.subheader("Patient Input (Dataset 2)")
 
-    st.info("🧠 Fill in the sections below. Required fields are automatically handled if left empty.")
+    st.info("Fill in the sections below. Required fields are automatically handled if left empty.")
 
     # =========================
     # BASIC CLINICAL DATA
@@ -215,4 +215,4 @@ if st.button("Predict"):
 # FOOTER
 # =========================
 st.markdown("---")
-st.caption("For research purposes only. Not a medical diagnostic tool.")
+# st.caption("For research purposes only. Not a medical diagnostic tool.")
