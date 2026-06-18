@@ -16,8 +16,8 @@ st.set_page_config(
 # =========================
 @st.cache_resource
 def load_systems():
-    set1 = joblib.load("autoimmune_system_set1_finalll.pkl")
-    set2 = joblib.load("autoimmune_system_set2_finalll.pkl")
+    set1 = joblib.load("autoimmune_system_set1_final.pkl")
+    set2 = joblib.load("autoimmune_system_set2_final.pkl")
     return set1, set2
 
 set1, set2 = load_systems()
