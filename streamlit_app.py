@@ -11,6 +11,17 @@ st.set_page_config(
     layout="centered"
 )
 
+t.write("Python:", sys.version)
+st.write("scikit-learn:", sklearn.__version__)
+
+try:
+    import sklearn._loss
+    st.success("✅ sklearn._loss imported")
+except Exception as e:
+    st.error(f"❌ {e}")
+
+st.stop()
+
 # =========================
 # LOAD MODELS
 # =========================
