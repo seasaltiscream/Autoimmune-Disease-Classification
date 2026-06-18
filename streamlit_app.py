@@ -1,55 +1,15 @@
 import streamlit as st
-import sys
-import sklearn
 import joblib
-import pandas as pd
+import traceback
 
-# =========================
-# PAGE CONFIG
-# =========================
-st.set_page_config(
-    page_title="Debug Environment",
-    page_icon="🩺",
-    layout="centered"
-)
-
-st.title("Streamlit Debug")
-
-st.subheader("Python")
-st.code(sys.version)
-
-st.subheader("Installed Packages")
-st.write("scikit-learn:", sklearn.__version__)
-st.write("joblib:", joblib.__version__)
-st.write("pandas:", pd.__version__)
-
-st.subheader("Testing sklearn._loss")
+st.title("Pickle Debug")
 
 try:
-    import sklearn._loss
-    st.success("✅ sklearn._loss imported successfully")
-    st.write(sklearn._loss.__file__)
+    obj = joblib.load("autoimmune_system_set1_final.pkl")
+    st.success("✅ Dataset 1 loaded successfully!")
+    st.write(type(obj))
+    st.write(obj.keys())
+
 except Exception as e:
-    st.error("❌ Failed to import sklearn._loss")
-    st.exception(e)
-
-st.subheader("Testing GradientBoosting import")
-
-try:
-    from sklearn.ensemble import GradientBoostingClassifier
-    st.success("✅ GradientBoostingClassifier imported successfully")
-except Exception as e:
-    st.error("❌ Failed to import GradientBoostingClassifier")
-    st.exception(e)
-
-st.subheader("Testing _loss module directly")
-
-try:
-    from sklearn._loss.loss import HalfMultinomialLoss
-    st.success("✅ HalfMultinomialLoss imported successfully")
-except Exception as e:
-    st.error("❌ Failed to import HalfMultinomialLoss")
-    st.exception(e)
-
-st.info("Stopping before loading the pickle.")
-st.stop()
+    st.error("❌ Failed to load Dataset 1")
+    st.code(traceback.format_exc())
